@@ -26,22 +26,26 @@ async function handleRequest(event) {
   // Create new URL object
   let url = new URL(req.url);
 
-  console.log(req.url.toString());
+  console.log("request url: " + req.url.toString());
+
+  // spara undan QS och lägg till i svaret tillbaka till delivery 
+  let searchEntries = url.search;
   
   // destination path. 
   let dest = url.pathname.toString();
   
-  //console.log(dest);
+  console.log("Destination: " + dest);
 
   let tmpExt = dest.split(".");
-  tmpExt = tmpExt[tmpExt.length -1];
+  tmpExt = tmpExt[tmpExt.length -1].toLowerCase();
   console.log("ext: " + tmpExt);
+  console.log("QS: " + searchEntries);
   
   // Verify that we have an image in the path
   if(tmpExt == "jpg" || tmpExt == "jpeg" || tmpExt == "png" || tmpExt == "webp" || tmpExt == "avif" || tmpExt == "gif")
   {
     
-    let backendURL = "https:/" + dest; // Note that dest contains a leading /
+    let backendURL = "https:/" + dest + searchEntries; // Note that dest contains a leading /
     console.log("backendURL: " + backendURL);
     
     return fetch(backendURL);
