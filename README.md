@@ -20,10 +20,10 @@ Compute service will forward the image to CDN that will transform the image usin
 
 
 ## Todo
-- [ ] Add security in the way of a header token to validate that this app should run and remove the token from the response. 
+- [x] Add security in the way of a header token to validate that this app should run and remove the token from the response. 
 - [x] Fix the loop issue.
-- [ ] Stream the file from Compute to origin to avoid running out of heapMemmory at 128mb if it's a really large image
-- [ ] Remove all response headers from the fetched image in the response to CDN to ensure IO works properly
+- [x] Stream the file from Compute to origin to avoid running out of heapMemmory at 128mb if it's a really large image
+- [x] Remove all response headers from the fetched image in the response to CDN to ensure IO works properly
 - [ ] Make sure QS's are handled properly from the incomming request to compute to the respones back to CDN where the transformation happens
 
 **For more details about other starter kits for Compute, see the [Fastly developer hub](https://developer.fastly.com/solutions/starters)**
