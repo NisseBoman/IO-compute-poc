@@ -76,6 +76,7 @@ async function handleRequest(event) {
     
     const myHeaders = new Headers();
    
+    // Add some normal headers to the request for the image
     myHeaders.append('Accept-Encoding','gzip, deflate, br');
     myHeaders.append('Accept', 'image/*');
     //myHeaders.append('user-agent', 'curl/7.21.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3');
