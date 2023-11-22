@@ -10,7 +10,7 @@ Deploy the code into fastly using the Fastly CLI. Make sure you have DynamicBack
 Use a Fastly CDN configured to use the newly deployed compute service as a origin.
 Request the image thru the CDN
 ```
-https://<cdn-service-dns>/<domain and image path> 
+https://<cdn-service-dns>/<domain and image path> (without https:(/))
  ```
 Example: https://edgeio.boman.church/upload.wikimedia.org/wikipedia/commons/7/70/Example.png 
 
@@ -24,7 +24,8 @@ Compute service will forward the image to CDN that will transform the image usin
 - [x] Fix the loop issue.
 - [x] Stream the file from Compute to origin to avoid running out of heapMemmory at 128mb if it's a really large image
 - [x] Remove all response headers from the fetched image in the response to CDN to ensure IO works properly
-- [ ] Make sure QS's are handled properly from the incomming request to compute to the respones back to CDN where the transformation happens
+- [x] Make sure QS's are handled properly from the incomming request to compute to the respones back to CDN where the transformation happens
+- [ ] Method for handling http and https (will this be required, fallback if HTTPS fails maby)
 
 **For more details about other starter kits for Compute, see the [Fastly developer hub](https://developer.fastly.com/solutions/starters)**
 
