@@ -32,7 +32,7 @@ async function handleRequest(event) {
   
   // Verify it's not local testing and also verify a token from the CDN service to avoid miss use of the service
   if(env("FASTLY_HOSTNAME") != "localhost") {
-    if (req.headers.get("Token") != "948390khbams3") //Please note that this is a secret and should be changed
+    if (req.headers.get("Token") != "<token>") //Please note that this is a secret and should be changed
     {
       return new Response("Unauthorized", {
         status: 401,
