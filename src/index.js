@@ -85,19 +85,21 @@ async function handleRequest(event) {
     // Set the TTL for the source image to 120 secs and override any other cache settings. Cache can be purged in 150ms!
     let cacheOverride = new CacheOverride('override', {ttl: 120}); 
 
+    console.log("pre-fetch",  performance.now());
     const response = await fetch(backendURL, {
       headers: myHeaders,
       method: "GET",
       cacheOverride
     }); 
-
+    console.log("post-fetch",  performance.now());
     return new Response(response.body, {
       status: 200,
       headers : new Headers({
         "Content-Type": response.headers.get("Content-Type"), 
-        "Accept-Ranges": response.headers.get("Accept-Ranges")   
+        "Accept-Ranges": response.headers.get("Accept-Ranges"),
       })
     });
+    
     
   
   }else{
